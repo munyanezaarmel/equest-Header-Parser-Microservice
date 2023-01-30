@@ -32,9 +32,9 @@ for (const k in interfaces) {
     }
 }
 
-console.log(addresses);
-res.json({ipaddress:addresses[0],language:"kinya-Rwanda,kinya;q=0.10",
-software:"Mozilla/5.0 (X45; elementary; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0"})
+console.log(req.headers);
+res.json({ipaddress:addresses[0],language:req.headers['accept-language'],
+software:req.headers['user-agent']})
 })
 // listen for requests :)
 var listener = app.listen(process.env.PORT || 3000, function () {
